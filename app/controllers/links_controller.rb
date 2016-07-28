@@ -1,6 +1,6 @@
 class LinksController < ApplicationController
   def index
-    render template: 'link/index.html.erb', locals: { link: Link.all }
+    render template: 'links/index.html.erb', locals: { link: Link.all }
   end
 
   def show
