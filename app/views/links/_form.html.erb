@@ -1,0 +1,21 @@
+<% link.errors.full_messages.each do |msg| %>
+<p>
+  <%= msg %>
+</p>
+<% end %>
+
+<%= form_for(link) do |t| %>
+<div>
+  <%= t.label :title %>
+  <%= t.text_field :title, class: 'input-field title', placeholder: "Enter here" %>
+</div>
+
+<div>
+  <%= t.label :url %>
+  <%= t.text_field :url, class: 'input-field url', placeholder: "Enter here" %>
+</div>
+
+<div>
+  <%= t.submit %>
+</div>
+<% end %>

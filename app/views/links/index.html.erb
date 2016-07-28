@@ -1,14 +1,21 @@
 <body>
 
-<h1><%= link_to "Links" %></h1>
-<%= link.each do |link| %>
+<h1>Iron Reddit</h1>
 <article>
+<%= link.each do |link| %>
+<p>
+  <%= link.vote_counter %>
+</p>
+<p>
+  <%= link_to "/votes?link_id", method: "POST" %>
+</p>
 
-<div>
+
+<p>
   <h3><%= link.title %></h3>
 
-</div>
-
-</body>
+</p>
 
 <% end %>
+</article>
+</body>
