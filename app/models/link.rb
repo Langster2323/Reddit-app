@@ -1,9 +1,12 @@
 class Link < ApplicationRecord
-  def self.top
-    joins("join votes on votes.link_id = links.id")
-    .group("links.id, links.name")
-    .order("count(votes.id) desc")
+  has_many :urls
+  has_many :votes
+
+  def converted_url
+    "http://" + self.url
   end
 
-  has_many :urls
+  def vote_counter
+    votes.count 
+  end
 end
