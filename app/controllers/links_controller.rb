@@ -26,6 +26,8 @@ class LinksController < ApplicationController
   def create
     link = Link.new
     link.title = params[:link][:title]
+    link.url = params[:link][:url]
+
     if link.save
       redirect_to_link_path(link)
     else
@@ -36,17 +38,17 @@ class LinksController < ApplicationController
     end
   end
 
-  def update
-    link = Link.find(params[:id])
-    link.title = params[:link][:title] if params[:link][:title].present?
-    if link.save
-      redirect_to_link_path(link)
-    else
-      render template: '/link/new.html.erb', locals: {
-        link: link
-      }
-    end
-  end
+  # def update
+  #   link = Link.find(params[:id])
+  #   link.title = params[:link][:title] if params[:link][:title].present?
+  #   if link.save
+  #     redirect_to_link_path(link)
+  #   else
+  #     render template: '/link/new.html.erb', locals: {
+  #       link: link
+  #     }
+  #   end
+  # end
 
   def destroy
   end
