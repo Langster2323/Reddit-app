@@ -14,5 +14,5 @@
   ].join(" ")
   link = Link.create(title: link_title,
           url: Faker::Hacker.adjective+Faker::Hacker.noun+".com")
-          Vote.create(link_id: link.id)
+          Vote.create(link_id: link.id, votes: rand(1..100))
 end

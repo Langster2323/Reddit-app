@@ -9,7 +9,16 @@
   </head>
 
   <body>
-    <h1>Reddit</h1>
+    <div>
+      <h1>Reddit</h1>
+      <nav>
+        <ul>
+          <li><%= link_to "Hot", root_path %></li>
+          <li><%= link_to "Votes", votes_path %></li>
+          </ul>
+        </nav>
+      </div>
     <%= yield %>
+
   </body>
 </html>
