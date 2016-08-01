@@ -5,7 +5,7 @@ class LinksController < ApplicationController
 
   def show
     if Link.exists?(params[:id])
-      render template: 'link/show.html.erb', locals: { link: Link.find(params[:id])}
+      render template: 'links/show.html.erb', locals: { link: Link.find(params[:id])}
     else
       render html: "Entity Not Found.", status: 404
     end
@@ -28,8 +28,9 @@ class LinksController < ApplicationController
     link.title = params[:link][:title]
     link.url = params[:link][:url]
 
-    if link.save
-      redirect_to_link_path(link)
+    if link
+      link.save
+      redirect_to action: "index"
     else
       flash[:alert] = "Link could not be saved"
       render template: 'link/new.html.erb', locals: {

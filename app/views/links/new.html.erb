@@ -1,4 +1,15 @@
-<h1>Make a new reddit</h1>
-<p>
-<%= render partial: 'form' %>
-</p>
+<h2>Make a new reddit</h2>
+
+<%= form_for(link) do |f| %>
+
+<fieldset>
+  <%= f.text_area :url, placeholder: 'New Url' %>
+</fieldset>
+<fieldset>
+  <%= f.text_area :title, placeholder: "New Title" %>
+</fieldset>
+
+<p><%= f.submit :create %></p>
+
+
+<% end %>
