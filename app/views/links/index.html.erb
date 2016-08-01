@@ -1,20 +1,15 @@
 <body>
 <h2>Favortie Links</h2>
 <article>
-<%= link.each do |link| %>
+  <% link.each do |link| %>
 <p>
-  <%= link.vote_counter %>
-</p>
-<p>
-  <%= link_to "/votes?link_id", method: "POST" %>
+  <small><%= link.vote_counter %></small>
 </p>
 
 
 <p>
   <h3><%= link.title %></h3>
-
 </p>
-
 <% end %>
 </article>
 </body>

@@ -7,6 +7,6 @@ class Link < ApplicationRecord
   end
 
   def vote_counter
-    votes.count 
+    votes.count
   end
 end
