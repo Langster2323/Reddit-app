@@ -1,21 +1,21 @@
-<% link.errors.full_messages.each do |msg| %>
-<p>
-  <%= msg %>
-</p>
-<% end %>
+<div><h3><%= form_title %></h3></div>
 
-<%= form_for(link) do |t| %>
 <div>
-  <%= t.label :title %>
-  <%= t.text_field :title, class: 'input-field title', placeholder: "Enter here" %>
+  <% if upvote.errors.any? %>
+    <% upvote.errors.full_messages.each do |msg| %>
+      <p> <%= msg %></p>
+    <% end %>
+  <% end %>
 </div>
 
 <div>
-  <%= t.label :url %>
-  <%= t.text_field :url, class: 'input-field url', placeholder: "Enter here" %>
+  <%= form_for(upvote) do |f| %>
+    <div>
+      <label for="link_id">Link: </label>
+      <%= f.select :link_id, options_from_collection_for_select(Link.all, :id, :title) %>
+    </div>
+    <div>
+      <%= f.submit %>
+    </div>
+  <% end %>
 </div>
-
-<div>
-  <%= t.submit %>
-</div>
-<% end %>
