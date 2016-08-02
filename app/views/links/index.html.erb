@@ -1,7 +1,7 @@
 <body>
 <h2>Favortie Links</h2>
 <article>
-  <% link.each do |link| %>
+  <% @links.each do |link| %>
 <p>
   <small><%= link.vote_counter %></small>
 </p>
@@ -13,11 +13,10 @@
 <p>
   <small><%= link.url %></small>
 </p>
-<%= form_for(link) do |f| %>
 <button>
+  <%= link_to "vote", votes_path(link_id: link.id), remote: true, method: :post %>
 </button>
 
-  <% end %>
 <% end %>
 </article>
 </body>

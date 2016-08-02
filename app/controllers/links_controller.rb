@@ -81,6 +81,6 @@ class LinksController < ApplicationController
   end
 
   def link_params
-    params.require(:link).permit(:vote, :url, :title)
+    params.require(:link).permit(:title, :url)
   end
 end

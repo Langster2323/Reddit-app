@@ -1,2 +1,2 @@
 
- <%= link_to "Vote" votes_path(vote: { link_id: @link.id }), method: :post) %>
+ <%= link_to ("Vote", votes_path(link_id: link.id), method: :post, remote: true) %>
