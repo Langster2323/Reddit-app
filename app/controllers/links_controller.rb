@@ -39,17 +39,18 @@ class LinksController < ApplicationController
     end
   end
 
-  # def update
-  #   link = Link.find(params[:id])
-  #   link.title = params[:link][:title] if params[:link][:title].present?
-  #   if link.save
-  #     redirect_to_link_path(link)
-  #   else
-  #     render template: '/link/new.html.erb', locals: {
-  #       link: link
-  #     }
-  #   end
-  # end
+  def update
+    link = Link.find(params[:id])
+    link.title = params[:title] if params[:title].present?
+    link.vote = params[:vote] if params[:vote].present?
+    if link.save
+      redirect_to link_path(link)
+    else
+      render template: '/link/new.html.erb', locals: {
+        link: link
+      }
+    end
+  end
 
   def destroy
   end
